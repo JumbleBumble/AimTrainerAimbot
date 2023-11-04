@@ -45,6 +45,7 @@ class MainWindow(QMainWindow):
         self.top_left, self.bottom_right = [0, 0], [0, 0]
         self.initUI()
 
+    #Opens color prompt and collects the values
     def get_color(self):
         color = QColorDialog.getColor()
         red_value = color.red()
@@ -54,6 +55,7 @@ class MainWindow(QMainWindow):
 
         self.color_label.setText(f"RGB: ({red_value}, {green_value}, {blue_value})")
 
+    # Used to retrieve the region positions
     def collect_region(self):
         if not self.open:
             self.pos_dialog.show()
@@ -67,6 +69,7 @@ class MainWindow(QMainWindow):
             )
         self.open = not self.open
 
+    # Loops find_color from AutoAimTrainer
     def aimbot(self):
         try:
             while self.aimbot_active:
@@ -82,7 +85,7 @@ class MainWindow(QMainWindow):
             self.aimbot_button.setText("Start Aimbot")
             return
 
-    # Handles starting the aimbot and ending it
+    #Handles starting the aimbot and ending it
     def start_aimbot(self):
         self.aimbot_active = not self.aimbot_active
         if not self.color:
