@@ -187,7 +187,6 @@ class MainWindow(QMainWindow):
 
         # Handles spinbox changes
         def offset(typ=None):
-            print('kew')
             if typ == 'y': self.y_offset = self.y_offset_input.value()
             else: self.x_offset = self.x_offset_input.value()
 
